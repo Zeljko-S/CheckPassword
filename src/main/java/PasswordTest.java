@@ -1,31 +1,26 @@
 import java.lang.*;
 
+/*Erarbeitet mit Alex Babakhel*/
 
 public class PasswordTest {
 
-    public boolean checkpassword(String password) {                     //final Test
-        return checkpasswordLength(password) && checkupperlower(password) && hasNum(password) && checkspecialchar(password) && nextNum(password) && samenextNum(password);
-    }
-
     public boolean checkpasswordLength(String password) {               //Test 1
-        if (!(password.length() >= 8 && password.length() <= 25)) {
-            return false;
-        }
-        return true;
+
+        return password.length() >= 8 && password.length() <= 25;
     }
     public boolean checkupperlower(String password) {                   //Test 2
 
-        int upper = 0;
-        int lower = 0;
+        int up = 0;
+        int low = 0;
 
         for (char i : password.toCharArray()) {
             if (Character.isUpperCase(i)) {
-                upper += 1;
+                up += 1;
             } else if (Character.isLowerCase(i)) {
-                lower += 1;
+                low += 1;
             }
         }
-        return lower != 0 && upper != 0;
+        return low != 0 && up != 0;
     }
     public boolean hasNum(String password) {                            //Test 3
 
@@ -88,6 +83,9 @@ public class PasswordTest {
             }
         }
         return true;
+    }
+    public boolean checkpassword(String password) {                     //final Test
+        return checkpasswordLength(password) && checkupperlower(password) && hasNum(password) && checkspecialchar(password) && nextNum(password) && samenextNum(password);
     }
 }
 
